@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Святого Валентина!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff99cc, #ff6699);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .heart {
+            font-size: 100px;
+            animation: pulse 1s infinite;
+            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            color: #ff6699;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart-bg {
+            position: absolute;
+            animation: float 6s infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        button {
+            background: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 1.2em;
+            color: #ff6699;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="heart">❤️</div>
+    <h1>С Днём Святого Валентина!</h1>
+    <div class="message">
+        <p>Дорогая моя Алиначка ,</p>
+        <p>Ты правда очень много для меня значишь,<br>
+        с твоим появлением я осознал,<br>
+        что проживаю лучшие моменты своей жизни.<br>
+        я тебя очень сильно люблю, вот прям реально!<br>
+        Спасибо, что ты есть у меня вот такая! ❤️</p>
+    </div>
+    <button onclick="showLove()">Тыкни на меня!</button>
+
+    <script>
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-bg';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        function showLove() {
+            alert("Я тебя люблю больше, чем все карпачи в мире! 💖");
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
